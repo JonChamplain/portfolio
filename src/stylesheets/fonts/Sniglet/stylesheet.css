@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'snigletregular';
+    src: url('Sniglet-Regular-webfont.eot');
+    src: url('Sniglet-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Sniglet-Regular-webfont.woff2') format('woff2'),
+         url('Sniglet-Regular-webfont.woff') format('woff'),
+         url('Sniglet-Regular-webfont.ttf') format('truetype'),
+         url('Sniglet-Regular-webfont.svg#snigletregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+

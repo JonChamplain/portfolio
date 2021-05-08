@@ -17,8 +17,7 @@ export default function Home() {
             />
          </div>
          <div className="text-block">
-            <p>I'm a web developer based in Burlington, Vermont.</p>
-            <br></br>
+            <h2>I'm a web developer based in Burlington, Vermont.</h2>
             <br></br>
             <p>
                I'm passionate about building beautiful and functional technology.

@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 import { getImage, GatsbyImage } from "gatsby-plugin-image";
 import PropTypes from "prop-types";
-import "../stylesheets/styles.css";
+import "../stylesheets/styles.scss";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
