@@ -3,6 +3,7 @@ module.exports = {
     title: "portfolio",
   },
   plugins: [
+   "gatsby-plugin-postcss",
     "gatsby-plugin-sass",
     "gatsby-plugin-gatsby-cloud",
     "gatsby-plugin-image",
