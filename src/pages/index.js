@@ -1,8 +1,14 @@
 import React, { useRef } from "react";
-import { useStaticQuery, graphql, Link } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 import { getImage, GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import { Helmet } from "react-helmet";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Navigation, Pagination } from "swiper";
+import "swiper/swiper-bundle.css";
 import "../stylesheets/styles.scss";
+
+// install Swiper modules
+SwiperCore.use([Pagination, Navigation]);
 
 export default function Home() {
   const data = useStaticQuery(graphql`
@@ -10,7 +16,7 @@ export default function Home() {
       JonCharacter: file(relativePath: { eq: "jon-character-circle.png" }) {
         childImageSharp {
           gatsbyImageData(
-            formats: AVIF
+            formats: [AUTO, WEBP, AVIF]
             layout: FULL_WIDTH
             placeholder: TRACED_SVG
           )
@@ -19,7 +25,7 @@ export default function Home() {
       CloudsBackground: file(relativePath: { eq: "clouds-background.png" }) {
         childImageSharp {
           gatsbyImageData(
-            formats: AVIF
+            formats: [AUTO, WEBP, AVIF]
             layout: FULL_WIDTH
             placeholder: TRACED_SVG
           )
@@ -28,7 +34,7 @@ export default function Home() {
       SunBackground: file(relativePath: { eq: "sun.png" }) {
         childImageSharp {
           gatsbyImageData(
-            formats: AVIF
+            formats: [AUTO, WEBP, AVIF]
             layout: CONSTRAINED
             placeholder: TRACED_SVG
           )
@@ -112,75 +118,89 @@ export default function Home() {
                 <div className="top-container" ref={workRef}>
                   <p className="subtitle">here's some stuff I've done</p>
                 </div>
-                <div className="container mx-auto flex flex-col items-center">
-                  <ul className="portfolio-list-grid ">
-                    <li className="portfolio-list-item">
-                      <a
-                        className="portfolio-list-link"
-                        href="https://sleepy-anchorage-59081.herokuapp.com/"
-                      >
-                        <StaticImage
-                          className="portfolio-list-image"
-                          src="../images/mockblog_thumbnail.jpg"
-                          alt="mock blog project link"
-                        />
-                        Mock Blog
-                      </a>
-                    </li>
-                    <li className="portfolio-list-item">
-                      <a
-                        className="portfolio-list-link"
-                        href="https://secure-fjord-65417.herokuapp.com/"
-                      >
-                        <StaticImage
-                          className="portfolio-list-image"
-                          src="../images/yelpington_thumbnail.jpg"
-                          alt="yelpington project link"
-                        />
-                        Yelpington
-                      </a>
-                    </li>
-                    <li className="portfolio-list-item">
-                      <a
-                        className="portfolio-list-link"
-                        href="https://stark-plateau-02827.herokuapp.com/"
-                      >
-                        <StaticImage
-                          className="portfolio-list-image"
-                          src="../images/triptactoe_thumbnail.jpg"
-                          alt="trip-tac-toe game link"
-                        />
-                        Trip-Tac-Toe
-                      </a>
-                    </li>
-                    <li className="portfolio-list-item">
-                      <a
-                        className="portfolio-list-link"
-                        href="https://github.com/JonChamplain?tab=repositories"
-                      >
-                        <StaticImage
-                          className="portfolio-list-image"
-                          src="../images/github_thumbnail.jpg"
-                          alt="github page link"
-                        />
-                        GitHub
-                      </a>
-                    </li>
-                  </ul>
-                </div>
               </div>
+              <Swiper
+                spaceBetween={100}
+                slidesPerView={1}
+                pagination={{ dynamicBullets: true }}
+                navigation={true}
+                loop={true}
+                centeredSlides={true}
+              >
+                <SwiperSlide>
+                  <a
+                    className="portfolio-list-link"
+                    href="https://sleepy-anchorage-59081.herokuapp.com/"
+                  >
+                    <StaticImage
+                      className="portfolio-list-image"
+                      src="../images/mockblog_thumbnail.jpg"
+                      alt="mock blog project link"
+                    />
+                    Mock Blog
+                  </a>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <a
+                    className="portfolio-list-link"
+                    href="https://secure-fjord-65417.herokuapp.com/"
+                  >
+                    <StaticImage
+                      className="portfolio-list-image"
+                      src="../images/yelpington_thumbnail.jpg"
+                      alt="yelpington project link"
+                    />
+                    Yelpington
+                  </a>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <a
+                    className="portfolio-list-link"
+                    href="https://stark-plateau-02827.herokuapp.com/"
+                  >
+                    <StaticImage
+                      className="portfolio-list-image"
+                      src="../images/triptactoe_thumbnail.jpg"
+                      alt="trip-tac-toe game link"
+                    />
+                    Trip-Tac-Toe
+                  </a>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <a
+                    className="portfolio-list-link"
+                    href="https://github.com/JonChamplain?tab=repositories"
+                  >
+                    <StaticImage
+                      className="portfolio-list-image"
+                      src="../images/github_thumbnail.jpg"
+                      alt="github page link"
+                    />
+                    GitHub
+                  </a>
+                </SwiperSlide>
+              </Swiper>
             </main>
             <div className="footer w-full mt-12" ref={contactRef}>
               <div className="container mx-auto relative flex flex-col justify-center items-center p-4 space-y-4 md:space-y-0">
                 <div className="footer-top flex flex-col space-y-4 justify-center items-center w-full">
                   <nav className="footer-nav space-x-12 flex justify-between">
-                    <span className="nav-link" onClick={() => scrollTo(aboutRef)}>
+                    <span
+                      className="nav-link"
+                      onClick={() => scrollTo(aboutRef)}
+                    >
                       About
                     </span>
-                    <span className="nav-link" onClick={() => scrollTo(workRef)}>
+                    <span
+                      className="nav-link"
+                      onClick={() => scrollTo(workRef)}
+                    >
                       Work
                     </span>
-                    <span className="nav-link" onClick={() => scrollTo(contactRef)}>
+                    <span
+                      className="nav-link"
+                      onClick={() => scrollTo(contactRef)}
+                    >
                       Contact
                     </span>
                   </nav>

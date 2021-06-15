@@ -204,12 +204,21 @@ h2 {
   align-items: center;
   text-decoration: none;
   font-size: 1.2rem;
+  max-width: max-content;
+  padding-bottom: 40px;
 }
 
-.portfolio-list-image {
-  width: 100%;
-  margin-bottom: 20px;
-  
+// .portfolio-list-image {
+//   width: 100%;
+//   margin-bottom: 20px;
+// }
+
+.swiper-slide {
+  max-width: max-content;
+}
+
+.swiper-pagination {
+  margin-top: 12px;
 }
 
 a:link {
