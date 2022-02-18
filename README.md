@@ -1,54 +1,318 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+## SET UP
 
-## 🚀 Quick start
+# THIS REPO WAS INITIALIZED WITH THIS COMMAND
 
-1.  **Create a Gatsby site.**
+`npx create-next-app -e with-tailwindcss my-project`
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+Then move contents into root if you initialized from an already initialized project.
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+# Optional: we like npm better i guess so delete yarn lock & npm i
 
-2.  **Start developing.**
+# Before first push, create .gitignore
 
-    Navigate into your new site’s directory and start it up.
+```
+# Dependency directories
+node_modules/
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+# dotenv environment variable files
+.env
 
-3.  **Open the code and start customizing!**
+# next files
+.next/
 
-    Your site is now running at http://localhost:8000!
+# Mac files
+.DS_Store
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-4.  **Learn more**
+# dependencies
+node_modules
+/.pnp
+.pnp.js
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+# testing
+/coverage
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+# next.js
+.next/
+out/
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+# production
+/build
 
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+# misc
+.DS_Store
+*.pem
 
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+# local env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-## 🚀 Quick start (Gatsby Cloud)
+# vercel
+.vercel
+```
 
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
+# if you screw up this is the command:
 
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+`git rm -r --cached .`
+
+# STARTING INSTALLATIONS FOR STYLING
+
+sass
+
+# (in dev dependencies?)
+
+autoprefixer
+postcss
+postcss-flexbugs-fixes
+postcss-preset-env
+tailwindcss
+
+#postcss.config.js
+
+```
+// If you want to use other PostCSS plugins, see the following:
+// https://tailwindcss.com/docs/using-with-preprocessors
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    "postcss-flexbugs-fixes": {},
+    "postcss-preset-env": {
+      autoprefixer: {
+        flexbox: "no-2009",
+      },
+      stage: 3,
+      features: {
+        "custom-properties": false,
+      },
+    },
+  },
+};
+```
+
+# postcss.config.js file:
+
+```
+module.exports = {
+  mode: "jit",
+  purge: [
+    "./src/pages/**/*.{js,ts,jsx,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx}",
+  ],
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
+
+# create src folder & throw pages, styles & components in there
+
+# Styles setup
+
+Create styles folder
+Global scss file:
+
+```
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@import "pages/index";
+```
+
+# File setup
+
+Pages folder (& however many other folders)
+`_filename.scss`
+Be sure to wrap in class or whatever to isolate as needed.
+import global.scss into index first line.
+
+# For refernce of some css conventions install skeleton & drag out contents into styles (put in like a reference folder & do one import at a time to see changes)
+
+`npm i -D skeleton-scss`
+
+# For cool 1 rem = 10px system & scaling up on larger screen sizes put higher up import in base styles:
+
+```
+html {
+  font-size: 62.5%;
+  @media (min-width: 2240px) {
+    font-size: 72.9166666667%;
+  }
+  @media (min-width: 2560px) {
+    font-size: 83.3333333333%;
+  }
+  @media (min-width: 2880px) {
+    font-size: 93.75%;
+  }
+  @media (min-width: 3200px) {
+    font-size: 104.166666667%;
+  }
+  @media (min-width: 3520px) {
+    font-size: 114.583333333%;
+  }
+  @media (min-width: 3840px) {
+    font-size: 125%;
+  }
+}
+```
+
+## BE SURE TO NOT IMPORT ALL SKELETON AT ONCE, START WITH LIKE NORMALIZE, TYPOGRAPHY, BASE STYLES, & EXPAND ONLY AS NEEDED & BTW ORDER OF IMPORTS REALLY REALLY REALLY MATTER
+
+# When defining typography, h1, .h1 for class accessibility on top of html
+
+# eslint & prettier install
+
+`npm i -D babel-eslint eslint eslint-config-prettier eslint-plugin-prettier eslint-plugin-react prettier`
+
+# .prettierrc in root
+
+```
+{
+  "semi": true,
+  "singleQuote": false,
+  "tabWidth": 2,
+  "useTabs": false
+}
+```
+
+# .eslintrc in root UP FOR REVISION & OPINION
+
+```
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["react", "prettier"],
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "node": true,
+    "es6": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    }
+  },
+  "rules": {
+    "prettier/prettier": "warn",
+    "react/jsx-uses-react": 2,
+    "react/react-in-jsx-scope": 2,
+    "strict": ["error", "global"],
+    "curly": "warn",
+    "react/prop-types": "off",
+    "no-case-declarations": "off",
+    "no-console": "error",
+    "quotes": [
+      "warn",
+      "double",
+      {
+        "allowTemplateLiterals": true
+      }
+    ],
+    "no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": false
+      }
+    ],
+    "prefer-const": [
+      "warn",
+      {
+        "destructuring": "all",
+        "ignoreReadBeforeAssign": false
+      }
+    ],
+    "no-var": "warn",
+    "comma-spacing": "warn",
+    "semi": ["warn", "always"],
+    "object-curly-spacing": ["warn", "always"],
+    "object-shorthand": "warn",
+    "quote-props": ["warn", "as-needed"]
+  }
+}
+```
+
+# Add scripts to package.json
+
+```
+"eslint": "eslint --fix-dry-run src --ext jsx,js",
+"eslintfix": "eslint --fix src --ext jsx,js",
+```
+
+############
+
+# Next.js + Tailwind CSS Example
+
+This example shows how to use [Tailwind CSS](https://tailwindcss.com/) (v2.1) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+
+It uses the new [`Just-in-Time Mode`](https://tailwindcss.com/docs/just-in-time-mode) for Tailwind CSS.
+
+## Preview
+
+Preview the example live on [StackBlitz](http://stackblitz.com/):
+
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+
+## Deploy your own
+
+Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+
+## How to use
+
+Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+
+```bash
+npx create-next-app --example with-tailwindcss with-tailwindcss-app
+# or
+yarn create next-app --example with-tailwindcss with-tailwindcss-app
+```
+
+Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
