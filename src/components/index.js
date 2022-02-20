@@ -1,0 +1,7 @@
+export { default as NavLink } from "./navLink"
+export { default as PortfolioItem } from "./portfolioItem"
+export { default as ContactItem } from "./contactItem"
+export { default as Header } from "./header"
+export { default as Footer } from "./footer"
+export { default as AboutSection } from "./aboutSection"
+export { default as PortfolioSection } from "./portfolioSection"
