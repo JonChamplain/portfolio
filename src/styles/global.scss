@@ -166,3 +166,38 @@ ul {
 .footer-nav {
   font-size: 4rem;
 }
+
+/* -------- swiper styling ----------------------- */
+
+.swiper {
+  height: 500px;
+}
+
+@media screen and (min-width: 480px) {
+  .swiper {
+    height: 600px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .swiper {
+    height: 700px;
+  }
+}
+.swiper-slide {
+  // height: 400px;
+  display: flex;
+  // background: #eee;
+  align-items: center;
+  justify-content: center;
+  transition: all 200ms linear;
+  transform: scale(0.7);
+
+  &.swiper-slide-active {
+    transform: scale(1.7);
+    z-index: 1;
+  }
+}
+// .swiper-slide__content {
+//   height: 400px;
+// }

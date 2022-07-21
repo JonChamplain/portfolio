@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function PortfolioItem({ link, image, alt, title }) {
+export default function PortfolioItem({ link, image, alt, text }) {
   return (
     <a
       className="portfolio-link"
@@ -8,8 +8,8 @@ export default function PortfolioItem({ link, image, alt, title }) {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <img className="portfolio-image" src={image} alt={alt} />
-      {title}
+      <img className="portfolio-image mb-3" src={image} alt={alt} />
+      {/* {text} */}
     </a>
   )
 }

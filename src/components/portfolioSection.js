@@ -3,6 +3,7 @@ import { PortfolioItem } from "../components"
 import { Navigation, Pagination } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css/bundle"
+import { portfolioItems } from "../lib/portfolioItems"
 
 export default function PortfolioSection({ portfolioRef }) {
   return (
@@ -10,44 +11,32 @@ export default function PortfolioSection({ portfolioRef }) {
       <p className="subtitle">here are some websites I've worked on</p>
       <Swiper
         modules={[Navigation, Pagination]}
-        spaceBetween={50}
-        slidesPerView={3}
+        spaceBetween={1}
+        slidesPerView={1}
         navigation
+        centeredSlides={true}
         pagination={{ clickable: true }}
         className="min-w-0"
+        roundLengths={true}
+        loop={true}
+        // initialSlide={1}
+        speed={500}
+        breakpoints={{
+          620: {
+            slidesPerView: 3,
+          },
+        }}
       >
-        <SwiperSlide>
-          <PortfolioItem
-            link="https://sleepy-anchorage-59081.herokuapp.com/"
-            image="/mockblog_thumbnail.jpg"
-            alt="mock blog project link"
-            text="Mock Blog"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <PortfolioItem
-            link="https://secure-fjord-65417.herokuapp.com/"
-            image="/yelpington_thumbnail.jpg"
-            alt="yelpington project link"
-            text="Yelpington"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <PortfolioItem
-            link="https://stark-plateau-02827.herokuapp.com/"
-            image="/triptactoe_thumbnail.jpg"
-            alt="trip-tac-toe game link"
-            text="Trip-Tac-Toe"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <PortfolioItem
-            link="https://github.com/JonChamplain?tab=repositories"
-            image="/github_thumbnail.jpg"
-            alt="github link"
-            text="Github"
-          />
-        </SwiperSlide>
+        {portfolioItems.map((item) => (
+          <SwiperSlide key={item.id}>
+            <PortfolioItem
+              link={item.link}
+              image={item.image}
+              alt={item.alt}
+              text={item.text}
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </section>
   )
