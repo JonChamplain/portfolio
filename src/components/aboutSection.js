@@ -13,7 +13,8 @@ export default function AboutSection({ aboutRef }) {
         <p>I&apos;m a web developer based in Burlington, Vermont.</p>
         <br />
         <p>
-          I&apos;m passionate about building beautiful and functional technology.
+          I&apos;m passionate about building beautiful and functional
+          technology.
         </p>
       </div>
     </section>

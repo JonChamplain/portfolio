@@ -1,21 +1,23 @@
 {
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:prettier/recommended",
-    "plugin:@next/next/recommended",
-    "prettier"
-  ],
-  "plugins": ["react", "prettier"],
+  "root": true,
   "env": {
     "browser": true,
-    "commonjs": true,
-    "node": true,
-    "es6": true
+    "es2020": true,
+    "node": true
   },
-  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "plugin:@next/eslint-plugin-next/recommended",
+    // place "next" at last
+    "plugin:@next/next/recommended",
+    "prettier",
+    // place "next" at last
+    "next" // https://github.com/vercel/next.js/blob/canary/packages/eslint-config-next/package.json
+  ],
+  "plugins": ["react", "prettier"],
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
-    "ecmaVersion": 6,
+    "ecmaVersion": 12,
     "sourceType": "module",
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
