@@ -1,19 +1,14 @@
 import React from "react"
-import { NavLink, ContactItem } from "../components"
+import { ContactItem } from "../components"
 
-export default function Footer({ aboutRef, portfolioRef, contactRef }) {
+export default function Footer() {
   const date = new Date()
   const currentYear = date.getFullYear()
 
   return (
-    <footer className="footer w-full mt-12" ref={contactRef}>
-      <div className="container mx-auto relative flex flex-col justify-center items-center p-4 space-y-4 md:space-y-0">
+    <footer className="footer w-full mt-12 p-8">
+      <div className="container mx-auto relative flex flex-col justify-center items-center p-4 space-y-8 md:space-y-0">
         <div className="footer-top flex flex-col space-y-4 justify-center items-center w-full">
-          <nav className="footer-nav space-x-12 flex justify-between">
-            <NavLink text="About" sectionRef={aboutRef} />
-            <NavLink text="Portfolio" sectionRef={portfolioRef} />
-            <NavLink text="Contact" sectionRef={contactRef} />
-          </nav>
           <div className="legal-text">Jon Russell © {currentYear}</div>
         </div>
         <div className="contact-list-grid md:absolute md:right-0 flex justify-between mt-0 w-40">

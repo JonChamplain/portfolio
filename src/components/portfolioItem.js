@@ -17,7 +17,7 @@ export default function PortfolioItem({ link, image, alt, text }) {
         src={image}
         alt={alt}
       />
-      {text}
+      <span className="text-gray-600">{text}</span>
     </a>
   )
 }

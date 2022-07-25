@@ -1,5 +1,11 @@
 import React, { useRef } from "react"
-import { Header, AboutSection, PortfolioSection, Footer } from "../components"
+import {
+  Header,
+  AboutSection,
+  ContactSection,
+  PortfolioSection,
+  Footer,
+} from "../components"
 
 export default function Home() {
   const aboutRef = useRef()
@@ -16,12 +22,9 @@ export default function Home() {
       <main>
         <AboutSection aboutRef={aboutRef} />
         <PortfolioSection portfolioRef={portfolioRef} />
+        <ContactSection contactRef={contactRef} />
       </main>
-      <Footer
-        aboutRef={aboutRef}
-        portfolioRef={portfolioRef}
-        contactRef={contactRef}
-      />
+      <Footer />
     </>
   )
 }

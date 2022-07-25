@@ -7,8 +7,8 @@ import { portfolioItems } from "../lib/portfolioItems"
 
 export default function PortfolioSection({ portfolioRef }) {
   return (
-    <section className="" ref={portfolioRef}>
-      <p className="subtitle">here are some websites I&apos;ve worked on:</p>
+    <section className="mb-20 lg:mb-48" ref={portfolioRef}>
+      <p className="subtitle">Here are some websites I&apos;ve worked on:</p>
       <Swiper
         centeredSlides={true}
         className="min-w-0"

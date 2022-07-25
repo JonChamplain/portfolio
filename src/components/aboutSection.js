@@ -7,7 +7,7 @@ export default function AboutSection({ aboutRef }) {
       className="container mx-auto flex-column-center px-8 pt-8"
       ref={aboutRef}
     >
-      <h1 className="mt-10">I&apos;m Jon.</h1>
+      <h1 className="font-handwriting mt-10">I&apos;m Jon.</h1>
       <p className="subtitle">a web developer</p>
       <div className="mb-24">
         <Image

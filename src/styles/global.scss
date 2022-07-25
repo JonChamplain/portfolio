@@ -14,12 +14,11 @@ html {
 }
 
 h1 {
-  font-family: handwriting;
   color: #3c7e68;
-  font-weight: 900;
 }
 
 h2 {
+  color: #3c7e68;
   font-weight: 500;
 }
 
@@ -29,6 +28,7 @@ h2 {
 
 .font-handwriting {
   font-family: handwriting, sans-serif;
+  font-weight: 900;
 }
 
 .font-sniglet {
@@ -47,6 +47,8 @@ h2 {
 
 /* topnav styling */
 .topnav {
+  position: sticky;
+  top: 0;
   display: flex;
   align-items: center;
   background-color: #acfcee;
@@ -57,6 +59,10 @@ h2 {
   border-radius: 0 0 30px 30px;
   transition-duration: 0.5s;
   justify-content: space-around;
+}
+
+.topnav .active {
+  color: #076dab;
 }
 
 .nav-link {
@@ -72,10 +78,6 @@ h2 {
     color: #076dab;
     border-bottom: 1px #076dab solid;
   }
-}
-
-.topnav .active {
-  color: #076dab;
 }
 
 .text-block {
@@ -97,12 +99,12 @@ h2 {
 }
 
 a:link {
-  color: #5e6969;
+  color: #556adf;
   font-weight: 600;
 }
 
 a:visited {
-  color: #5e6969;
+  color: #556adf;
 }
 
 /* -------- footer styling ----------------------- */
@@ -125,10 +127,10 @@ a:visited {
   align-items: center;
   justify-content: center;
   transition: all 200ms linear;
-  transform: scale(0.7);
+  // transform: scale(0.7);
 
   &.swiper-slide-active {
-    transform: scale(1.7);
+    // transform: scale(1.7);
     z-index: 1;
   }
 }
@@ -168,6 +170,16 @@ a:visited {
   }
 }
 
+@media screen and (min-width: 650px) {
+  .swiper-slide {
+    transform: scale(0.7);
+
+    &.swiper-slide-active {
+      transform: scale(1.7);
+    }
+  }
+}
+
 @media screen and ($bp-larger-than-tablet) {
   .subtitle {
     font-size: 2.5rem;
@@ -199,7 +211,6 @@ a:visited {
   .swiper-button-prev {
     left: -2rem;
   }
-
 }
 
 @media screen and ($bp-larger-than-desktophd) {
