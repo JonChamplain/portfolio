@@ -160,6 +160,9 @@ a:visited {
   &:active {
     opacity: 0.9;
   }
+  &:focus {
+    outline: none;
+  }
 }
 
 @media (hover: hover) and (pointer: fine) {
