@@ -3,11 +3,10 @@ import React from "react"
 
 export default function AboutSection({ aboutRef }) {
   return (
-    <section
-      className="container mx-auto flex-column-center px-8 pt-20 lg:pt-48"
-      ref={aboutRef}
-    >
-      <h1 className="font-handwriting mt-10">I&apos;m Jon.</h1>
+    <section className="container mx-auto flex-column-center px-8 pt-20 lg:pt-48">
+      <h1 className="font-handwriting mt-10" ref={aboutRef}>
+        I&apos;m Jon.
+      </h1>
       <p className="subtitle">a web developer</p>
       <div className="mb-24">
         <Image

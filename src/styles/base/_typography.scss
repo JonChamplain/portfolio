@@ -91,7 +91,7 @@ p {
 }
 
 // Larger than small phone
-@media (#{$bp-larger-than-small-mobile}) {
+@media (#{$bp-larger-than-mobile}) {
   h1 {
     font-size: 20rem;
   }
