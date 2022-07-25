@@ -8,14 +8,13 @@ export default function Header({ aboutRef, portfolioRef, contactRef }) {
   useEffect(() => {
     const controlNavbar = () => {
       if (typeof window !== "undefined") {
-        if (window.scrollY > lastScrollY) {
-          // if scroll down hide the navbar
-          setShow(false)
-        } else {
+        if (window.scrollY < lastScrollY || window.scrollY < 30) {
           // if scroll up show the navbar
           setShow(true)
+        } else {
+          // if scroll down hide the navbar
+          setShow(false)
         }
-
         // remember current page location to use in the next move
         setLastScrollY(window.scrollY)
       }
