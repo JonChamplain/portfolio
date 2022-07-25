@@ -21,7 +21,7 @@ export default function PortfolioSection({ portfolioRef }) {
         speed={500}
         slidesPerView={1}
         breakpoints={{
-          620: {
+          750: {
             slidesPerView: 3,
           },
         }}

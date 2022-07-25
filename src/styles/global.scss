@@ -153,12 +153,21 @@ a:visited {
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: center;
-  padding: 3rem;
+  padding: 2rem;
   transition: all 0.2s;
   opacity: 0.7;
 
-  &:hover {
+  &:active {
     opacity: 0.9;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    &:hover {
+      opacity: 0.9;
+    }
   }
 }
 
@@ -182,16 +191,6 @@ a:visited {
   }
 }
 
-@media screen and (min-width: 650px) {
-  .swiper-slide {
-    transform: scale(0.7);
-
-    &.swiper-slide-active {
-      transform: scale(1.7);
-    }
-  }
-}
-
 @media screen and ($bp-larger-than-tablet) {
   .subtitle {
     font-size: 2.5rem;
@@ -203,6 +202,18 @@ a:visited {
 
   .footer-nav {
     font-size: 5rem;
+  }
+
+  .swiper-slide {
+    transform: scale(0.7);
+
+    &.swiper-slide-active {
+      transform: scale(1.7);
+    }
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    padding: 3rem;
   }
 }
 
@@ -218,10 +229,6 @@ a:visited {
   .swiper-button-prev,
   .swiper-button-next {
     padding: 5rem;
-  }
-
-  .swiper-button-prev {
-    left: -2rem;
   }
 }
 
