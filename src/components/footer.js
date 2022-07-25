@@ -16,7 +16,7 @@ export default function Footer({ aboutRef, portfolioRef, contactRef }) {
           </nav>
           <div className="legal-text">Jon Russell © {currentYear}</div>
         </div>
-        <div className="contact-list-grid md:absolute md:right-0 flex justify-center mt-0">
+        <div className="contact-list-grid md:absolute md:right-0 flex justify-between mt-0 w-40">
           <ContactItem
             link="mailto:joninvermont@gmail.com"
             image="/gmail_icon.svg"

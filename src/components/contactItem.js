@@ -1,3 +1,4 @@
+import Image from "next/image"
 import React from "react"
 
 export default function ContactItem({ link, image, alt }) {
@@ -9,7 +10,13 @@ export default function ContactItem({ link, image, alt }) {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <img className="contact-image" src={image} alt={alt} />
+        <Image
+          width={20}
+          height={20}
+          className="contact-image"
+          src={image}
+          alt={alt}
+        />
       </a>
     </span>
   )

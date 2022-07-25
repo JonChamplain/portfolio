@@ -8,18 +8,18 @@ import { portfolioItems } from "../lib/portfolioItems"
 export default function PortfolioSection({ portfolioRef }) {
   return (
     <section className="" ref={portfolioRef}>
-      <p className="subtitle">here are some websites I&apos;ve worked on</p>
+      <p className="subtitle">here are some websites I&apos;ve worked on:</p>
       <Swiper
-        modules={[Navigation, Pagination]}
-        spaceBetween={1}
-        slidesPerView={1}
-        navigation
         centeredSlides={true}
-        pagination={{ clickable: true }}
         className="min-w-0"
-        roundLengths={true}
         loop={true}
+        modules={[Navigation, Pagination]}
+        navigation
+        pagination={{ clickable: true }}
+        roundLengths={true}
+        spaceBetween={1}
         speed={500}
+        slidesPerView={1}
         breakpoints={{
           620: {
             slidesPerView: 3,

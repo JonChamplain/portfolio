@@ -10,6 +10,7 @@ function MyApp({ Component, pageProps }) {
         <meta
           name="description"
           content="I'm a web developer based in Burlington, Vermont"
+          lang="en"
         />
         <link rel="icon" href="/favicon.png" />
       </Head>

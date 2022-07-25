@@ -1,4 +1,5 @@
 import React from "react"
+import Image from "next/image"
 
 export default function PortfolioItem({ link, image, alt, text }) {
   return (
@@ -8,8 +9,15 @@ export default function PortfolioItem({ link, image, alt, text }) {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <img className="portfolio-image mb-3" src={image} alt={alt} />
-      {/* {text} */}
+      <Image
+        className="portfolio-image mb-3"
+        layout="intrinsic"
+        width={1000}
+        height={500}
+        src={image}
+        alt={alt}
+      />
+      {text}
     </a>
   )
 }

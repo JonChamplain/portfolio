@@ -1,31 +1,31 @@
 export const portfolioItems = [
   {
     id: 1,
-    link: "https://hidden-fortress-73610.herokuapp.com/",
-    image: "/mock_blog.jpg",
-    alt: "mock blog project link",
-    text: "Mock Blog",
-  },
-  {
-    id: 2,
-    link: "https://secure-fjord-65417.herokuapp.com/",
-    image: "/yelpington.jpg",
-    alt: "yelpington project link",
-    text: "Yelpington",
-  },
-  {
-    id: 3,
     link: "https://www.radarpictures.com/",
     image: "/radar_pictures.jpg",
     alt: "Radar Pictures",
     text: "Radar Pictures",
   },
   {
-    id: 4,
+    id: 2,
     link: "https://www.bevmart.com/",
     image: "/bevmart.jpg",
     alt: "Bevmart",
     text: "Bevmart",
+  },
+  {
+    id: 3,
+    link: "https://hidden-fortress-73610.herokuapp.com/",
+    image: "/mock_blog.jpg",
+    alt: "mock blog project link",
+    text: "Mock Blog",
+  },
+  {
+    id: 4,
+    link: "https://secure-fjord-65417.herokuapp.com/",
+    image: "/yelpington.jpg",
+    alt: "yelpington project link",
+    text: "Yelpington",
   },
   {
     id: 5,

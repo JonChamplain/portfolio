@@ -7,6 +7,7 @@ $MediumGreen: #acfcee !default;
 $DarkGreen: #3c7e68 !default;
 
 // Breakpoints
+$bp-larger-than-small-mobile: "min-width: 360px" !default;
 $bp-larger-than-mobile: "min-width: 400px" !default;
 $bp-larger-than-phablet: "min-width: 550px" !default;
 $bp-larger-than-tablet: "min-width: 750px" !default;
