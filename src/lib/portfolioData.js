@@ -1,4 +1,4 @@
-export const portfolioItems = [
+export const portfolioData = [
   {
     id: 1,
     link: "https://www.radarpictures.com/",

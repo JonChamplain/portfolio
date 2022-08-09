@@ -1,11 +1,27 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { PortfolioItem } from "../components"
 import { Navigation, Pagination } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css/bundle"
-import { portfolioItems } from "../lib/portfolioItems"
+import { portfolioData } from "../lib/portfolioData"
 
 export default function PortfolioSection({ portfolioRef }) {
+  const [portfolioItems, setPortfolioItems] = useState([])
+
+  useEffect(() => {
+    const portfolioItemsArray = portfolioData.map((item) => (
+      <SwiperSlide key={item.id}>
+        <PortfolioItem
+          link={item.link}
+          image={item.image}
+          alt={item.alt}
+          text={item.text}
+        />
+      </SwiperSlide>
+    ))
+    setPortfolioItems(portfolioItemsArray)
+  }, [])
+
   return (
     <section className="mb-20 lg:mb-48" ref={portfolioRef}>
       <p className="subtitle">Here are some websites I&apos;ve worked on:</p>
@@ -20,22 +36,15 @@ export default function PortfolioSection({ portfolioRef }) {
         spaceBetween={1}
         speed={500}
         slidesPerView={1}
+        initialSlide={1}
         breakpoints={{
           750: {
+            initialSlide: 3,
             slidesPerView: 3,
           },
         }}
       >
-        {portfolioItems.map((item) => (
-          <SwiperSlide key={item.id}>
-            <PortfolioItem
-              link={item.link}
-              image={item.image}
-              alt={item.alt}
-              text={item.text}
-            />
-          </SwiperSlide>
-        ))}
+        {portfolioItems}
       </Swiper>
     </section>
   )
